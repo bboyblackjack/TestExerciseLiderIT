@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Вход в МЕГАЧАТ3000";
+}
+
+<h1>Чат - вход</h1>
+<div class="container">
+    <div class="row text-center">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label>Логин</label>
+                <center><input type="text" class="form-control" id="login" placeholder="Логин" /></center>
+            </div>
+            <div class="form-group">
+                <label>Пароль</label>
+                <center><input type="text" class="form-control" id="password" placeholder="Пароль" /></center>
+            </div>
+            <a href="/Chat/StartPage" class="btn btn-primary">Главная</a>
+            <a href="/Chat/LogIn" class="btn btn-default">Войти</a>
+        }
+    </div>
+</div>
+
