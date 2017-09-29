@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChatApp", "SimpleChatApp\SimpleChatApp.csproj", "{C967FE4F-72FE-47E8-876C-86B6B64EC0FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{52AAF705-89B3-45DC-B7E9-DC3A75EFEA5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B0943573-9504-4DF5-B353-B8429FBCB2FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C967FE4F-72FE-47E8-876C-86B6B64EC0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C967FE4F-72FE-47E8-876C-86B6B64EC0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C967FE4F-72FE-47E8-876C-86B6B64EC0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52AAF705-89B3-45DC-B7E9-DC3A75EFEA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52AAF705-89B3-45DC-B7E9-DC3A75EFEA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52AAF705-89B3-45DC-B7E9-DC3A75EFEA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52AAF705-89B3-45DC-B7E9-DC3A75EFEA5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0943573-9504-4DF5-B353-B8429FBCB2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0943573-9504-4DF5-B353-B8429FBCB2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0943573-9504-4DF5-B353-B8429FBCB2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0943573-9504-4DF5-B353-B8429FBCB2FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

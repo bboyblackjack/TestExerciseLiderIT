@@ -1,23 +1,55 @@
-﻿@{
-    ViewBag.Title = "Вход в МЕГАЧАТ3000";
-}
+﻿@if (Session["user_id"] == null)
+{
 
-<h1>Чат - вход</h1>
-<div class="container">
-    <div class="row text-center">
-        @using (Html.BeginForm())
-        {
-            <div class="form-group">
-                <label>Логин</label>
-                <center><input type="text" class="form-control" id="login" placeholder="Логин" /></center>
-            </div>
-            <div class="form-group">
-                <label>Пароль</label>
-                <center><input type="text" class="form-control" id="password" placeholder="Пароль" /></center>
-            </div>
-            <a href="/Chat/StartPage" class="btn btn-primary">Главная</a>
-            <a href="/Chat/LogIn" class="btn btn-default">Войти</a>
-        }
+    ViewBag.Title = "Регистрация в МЕГАЧАТ3000";
+
+
+    @model DataModel.User
+
+    <h1>Чат - регистрация</h1>
+    <div class="container">
+        <div class="row text-center">
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+            <!--Здесь будут выводится сообщения об ошибках-->
+                <center>
+                    @Html.ValidationSummary(true)
+                    @Html.ValidationMessageFor(model => model.Login)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </center>
+
+                <div class="form-group">
+                    <label for="login">Логин</label>
+                    <center>
+                        @Html.TextBoxFor(model => model.Login, new
+                   {
+                       @class = "form-control",
+                       @placeholder = "Логин",
+                       @required = true
+                   })
+                    </center>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <center>
+                        @Html.TextBoxFor(model => model.Password, new
+                   {
+                       @class = "form-control",
+                       @placeholder = "Пароль",
+                       @required = true,
+                       @minlength = 6,
+                       @maxlength = 18,
+                       @type = "password"
+                   })
+                    </center>
+                </div>
+                <a href="/Chat/StartPage" class="btn btn-primary">Главная</a>
+                <input type="submit" class="btn btn-default" value="Вход" />
+            }
+        </div>
     </div>
-</div>
-
+}
+else
+{
+    Response.Redirect("/Chat/Chat");
+}

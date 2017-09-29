@@ -1,0 +1,14 @@
+﻿@if (Session["user_id"] != null)
+{ 
+    ViewBag.Title = "Общий чат";
+
+
+    @Html.ActionLink("Выйти", "LogOff", null, new {@class="btn btn-danger" })
+
+}
+else
+{
+    Response.Redirect("/Chat/StartPage");
+}
+
+

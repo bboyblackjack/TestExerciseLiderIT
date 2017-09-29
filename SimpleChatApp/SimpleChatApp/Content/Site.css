@@ -12,9 +12,10 @@ input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 .field-validation-error {
+    display:block;
     color: #b94a48;
 }
 
@@ -36,16 +37,28 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
-}*/
+}
 
-
+.validation-summary-errors ul
+{
+    list-style:none;
+    color: #b94a48;
+    margin-left: -40px;
+}
 
 h1
 {
     text-align:center;
 }
 
-#login, #password
+#Login, #Password
 {
+
     width: 300px;
+}
+
+#success
+{
+    color: green;
+    margin-bottom: 10px;
 }

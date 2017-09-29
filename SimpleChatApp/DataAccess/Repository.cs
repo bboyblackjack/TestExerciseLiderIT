@@ -31,6 +31,7 @@ namespace DataAccess
         public void insertMessage(Message msg)
         {
             db.Messages.Add(msg);
+            db.SaveChanges();
         }
     }
 }
