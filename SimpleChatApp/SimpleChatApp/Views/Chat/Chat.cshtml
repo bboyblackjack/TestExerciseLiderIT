@@ -1,19 +1,38 @@
 ﻿@if (Session["user_id"] != null)
 {
     ViewBag.Title = "Общий чат";
+    
 
     @model ICollection<DataModel.Message>
 
+    <script type="text/javascript">
+     
+        function show() {
+            $.ajax({
+                url: "/Chat/Message",
+                cache: false,
+                success: function (html) {
+                    $("#messages").html(html);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            show();
+            setInterval('show()', 1000);
+        });
+
+    </script>
+
 
     <h1>Чат - [@Session["login"]]</h1>
-    
+
     <div class="container">
         <div class="row" id="message-form">
             @using (Ajax.BeginForm("Chat", new AjaxOptions()
             {
                 HttpMethod = "POST",
-                InsertionMode = InsertionMode.InsertAfter,
-                UpdateTargetId = "messages"
+                
             }))
             {
                 <div class="col-md-1">
@@ -32,28 +51,11 @@
         </div>
 
         <div id="messages">
-            @foreach (var msg in Model)
-            {
-                if (msg.UserId == (int)Session["user_id"])
-                {
-                    <div class="row message my-message">
-                        <b><i>Лалыч</i></b>
-                        <br />
-                        <i>Опубликовано: @msg.MessageTime</i>
-                        <p>@msg.MessageText</p>
-                    </div>
-                }
-                else
-                {
-                    <div class="row message other-message">
-                        <b><i>Лалыч</i></b>
-                        <br />
-                        <i>Опубликовано: @msg.MessageTime</i>
-                        <p>@msg.MessageText</p>
-                    </div>
-                }
-            }
+           
         </div>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
     </div>
 }
 else

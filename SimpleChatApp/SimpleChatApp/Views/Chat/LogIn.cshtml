@@ -1,12 +1,12 @@
 ﻿@if (Session["user_id"] == null)
 {
 
-    ViewBag.Title = "Регистрация в МЕГАЧАТ3000";
+    ViewBag.Title = "Вход в МЕГАЧАТ3000";
 
 
     @model DataModel.User
 
-    <h1>Чат - регистрация</h1>
+    <h1>Чат - вход</h1>
     <div class="container">
         <div class="row text-center">
             @using (Html.BeginForm(FormMethod.Post))

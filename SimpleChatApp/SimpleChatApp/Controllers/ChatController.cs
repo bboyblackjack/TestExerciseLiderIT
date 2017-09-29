@@ -84,6 +84,12 @@ namespace SimpleChatApp.Controllers
 
         public ActionResult Chat()
         {
+            var a = _rep.getAllMessages();
+            return View(_rep.getAllMessages());
+        }
+
+        public ActionResult Message()
+        {
             return View(_rep.getAllMessages());
         }
         
@@ -101,7 +107,7 @@ namespace SimpleChatApp.Controllers
 
             _rep.insertMessage(msg);
 
-            return PartialView("Message", msg);
+            return View("Chat");
         }
 
         public ActionResult LogOff()

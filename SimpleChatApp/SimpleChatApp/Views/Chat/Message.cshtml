@@ -1,23 +1,34 @@
-﻿@model DataModel.Message
+﻿@if (Session["user_id"] != null)
+{
 
-<div>
-    @if (Model.UserId == (int)Session["user_id"])
-    {
-    <div class="row message my-message">
-        <b><i>Лалыч</i></b>
-        <br />
-        <i>Опубликовано: @Model.MessageTime</i>
-        <p>@Model.MessageText</p>
+    @model ICollection<DataModel.Message>
+
+    <div>
+        @foreach (var m in Model)
+        {
+            if (m.UserId == (int)Session["user_id"])
+            {
+                <div class="row message my-message">
+                    <b><i>@m.User.Login</i></b>
+                    <br />
+                    <i>Опубликовано: @m.MessageTime</i>
+                    <p>@m.MessageText</p>
+                </div>
+            }
+            else
+            {
+                <div class="row message other-message">
+                    <b><i>@m.User.Login</i></b>
+                    <br />
+                    <i>Опубликовано: @m.MessageTime</i>
+                    <p>@m.MessageText</p>
+                </div>
+            }
+        }
+
     </div>
-    }
-    else
-    {
-    <div class="row message other-message">
-        <b><i>Лалыч</i></b>
-        <br />
-        <i>Опубликовано: @Model.MessageTime</i>
-        <p>@Model.MessageText</p>
-    </div>
-    }
-        
-</div>
+}
+else
+{
+    Response.Redirect("/Chat/Chat");
+}

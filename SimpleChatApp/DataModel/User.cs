@@ -21,10 +21,6 @@ namespace DataModel
         [Display(Name = "Пароль")]
         public string Password { get; set; }
 
-        public ICollection<Message> Messages { get; set; }
-        public User()
-        {
-            Messages = new List<Message>();
-        }
+        public IEnumerable<Message> Messages { get; set; }
     }
 }
