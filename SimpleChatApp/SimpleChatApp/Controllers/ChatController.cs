@@ -84,7 +84,24 @@ namespace SimpleChatApp.Controllers
 
         public ActionResult Chat()
         {
-            return View();
+            return View(_rep.getAllMessages());
+        }
+        
+        [HttpPost]
+        public ActionResult Chat(string message)
+        {
+            User user = _rep.getUserById((int)Session["user_id"]);
+            Message msg = new Message()
+            {
+                MessageText = message,
+                MessageTime = DateTime.Now,
+                UserId = (int)Session["user_id"],
+                User = user
+            };
+
+            _rep.insertMessage(msg);
+
+            return PartialView("Message", msg);
         }
 
         public ActionResult LogOff()

@@ -62,3 +62,24 @@ h1
     color: green;
     margin-bottom: 10px;
 }
+
+#message-form:after
+{
+    margin-bottom: 50px;
+}
+
+.message
+{
+    padding: 10px 10px;
+    margin-bottom: 10px;
+}
+
+.my-message
+{
+    background: #DFF0D8;
+}
+
+.other-message
+{
+    background: #D9EDF7;
+}

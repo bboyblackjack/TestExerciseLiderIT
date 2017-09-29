@@ -1,10 +1,60 @@
 ﻿@if (Session["user_id"] != null)
-{ 
+{
     ViewBag.Title = "Общий чат";
 
+    @model ICollection<DataModel.Message>
 
-    @Html.ActionLink("Выйти", "LogOff", null, new {@class="btn btn-danger" })
 
+    <h1>Чат - [@Session["login"]]</h1>
+    
+    <div class="container">
+        <div class="row" id="message-form">
+            @using (Ajax.BeginForm("Chat", new AjaxOptions()
+            {
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.InsertAfter,
+                UpdateTargetId = "messages"
+            }))
+            {
+                <div class="col-md-1">
+                    <label style="margin-top:5px">Сообщение</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" id="message" name="message" class="form-control" placeholder="Текст сообщения" />
+                </div>
+                <div class="col-md-1">
+                    <input type="submit" id="send" class="btn btn-success" value="Отправить" />
+                </div>
+            }
+            <div class="col-md-1">
+                @Html.ActionLink("Выйти", "LogOff", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+
+        <div id="messages">
+            @foreach (var msg in Model)
+            {
+                if (msg.UserId == (int)Session["user_id"])
+                {
+                    <div class="row message my-message">
+                        <b><i>Лалыч</i></b>
+                        <br />
+                        <i>Опубликовано: @msg.MessageTime</i>
+                        <p>@msg.MessageText</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="row message other-message">
+                        <b><i>Лалыч</i></b>
+                        <br />
+                        <i>Опубликовано: @msg.MessageTime</i>
+                        <p>@msg.MessageText</p>
+                    </div>
+                }
+            }
+        </div>
+    </div>
 }
 else
 {

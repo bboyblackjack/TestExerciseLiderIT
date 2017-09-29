@@ -1,0 +1,23 @@
+﻿@model DataModel.Message
+
+<div>
+    @if (Model.UserId == (int)Session["user_id"])
+    {
+    <div class="row message my-message">
+        <b><i>Лалыч</i></b>
+        <br />
+        <i>Опубликовано: @Model.MessageTime</i>
+        <p>@Model.MessageText</p>
+    </div>
+    }
+    else
+    {
+    <div class="row message other-message">
+        <b><i>Лалыч</i></b>
+        <br />
+        <i>Опубликовано: @Model.MessageTime</i>
+        <p>@Model.MessageText</p>
+    </div>
+    }
+        
+</div>
