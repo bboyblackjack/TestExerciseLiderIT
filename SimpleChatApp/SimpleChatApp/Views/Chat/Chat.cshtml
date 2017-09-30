@@ -17,6 +17,11 @@
             });
         }
 
+        function Success()
+        {
+            $("#message").val("");
+        }
+
         $(document).ready(function () {
             show();
             setInterval('show()', 1000);
@@ -32,6 +37,7 @@
             @using (Ajax.BeginForm("Chat", new AjaxOptions()
             {
                 HttpMethod = "POST",
+                OnSuccess = "Success"
                 
             }))
             {
